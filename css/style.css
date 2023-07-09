@@ -1,0 +1,127 @@
+body{/*corpo do site*/
+    font-family: "Oxanium", cursive;
+    background-color: #000000;
+    color: #ffffff;
+}
+/*cria um pseudo elemento para ser usado no css */
+body::before{/*imagem de fundo do site*/
+    content: "";
+    background-image: url(../imagens/bg-desktop.jpg);
+    background-repeat: no-repeat; /*nao repetir */
+    background-size: cover;/*tamanho do fundo cobrir todo o body*/
+    background-position: center;/*centraliza a imagem*/
+    width: 100%;/*largura*/
+    height: 100%;/*altura*/
+    position: absolute;/*posicao absoluta cria uma camada antes de tudo*/
+    z-index: -1;/*ele vai para tras do site*/
+    opacity: 0.2;/*opacidade da imagem*/
+}
+
+.cabecalho{/*imagem de inicio do site*/
+    display: flex;
+    /*background-color: aqua;*/
+    justify-content: center;
+}
+
+.selecao-personagens{
+    /*background-color: #ee82ee;*/
+    display: flex;
+    align-items: center;/*centraliza os elementos verticalmente*/
+    gap: 30px; /*distancia entre os elementos*/
+    min-height: calc(100vh - 152px);/*minimo do tamanho view port(tela janela) menos os 152 da altura do cabecalho  para evitar a rolagem da tela */
+    justify-content: center;/*centraliza verticalmete*/
+    
+}
+
+.selecao-personagens .lista-personagens{/*especificando a classe que quero alterar hierarquia entre pai e filho*/
+    display: flex;/*por padrao fica alinhado lado a lado -row */
+    /*background-color: brown;*/
+    flex-wrap: wrap;/*quando nao tiver espaco ele vai quebrar colocar um embaixo do outro*/
+    gap: 30px;/*espacamento entre os elementos*/
+    justify-content: center;/*alinha o  conteudo ao centro horizontalmente*/
+    
+}
+
+.selecao-personagens .personagens{
+    /*background-color: green;*/
+    display: flex;
+    flex-direction: column;/*alinha os itens em coluna*/
+    align-items: center;
+    max-width: 585px;/*tamanho do meu elemento*/
+    gap: 25px;/*distacia do espaco*/
+}
+
+.selecao-personagens .personagens .titulo{
+    font-size: 20px;
+    letter-spacing: 4px;/*espacamento entre as letras*/
+    text-transform: uppercase;/*transforma o  texto em letra maiuscula*/
+    border-bottom: 2px solid #47f4ff;/*cria uma linha em baixo do texto com o botton*/
+    width: 100%;/*faz com que a largura seja a mesma do pai*/
+    text-align: center;/*alinha o texto ao centro */
+}
+
+.lista-personagens .personagem img{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.lista-personagens .personagem.selecionado{
+    box-shadow: 0px 0px 24px 5px #0271f7;/*vai criar uma sobra quando selecionar o personagem*/
+}
+
+.personagem-selecionado{
+    /*background-color: mediumseagreen;*/
+    text-align: center;
+    max-width: 530px;
+}
+
+.personagem-selecionado .personagem-grande{
+    width: 430px;
+    height: 430px;
+}
+
+.personagem-selecionado .nome-personagem{
+    border-bottom: 2px solid #47f4ff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.personagem-selecionado .descricao-personagem{
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    margin-top: 20px;
+    width: 420px;
+}
+/*-----------------responsividade--------------*/
+@media (max-width: 1120px){
+    .cabecalho .logo{
+        max-width: 190px;/*tamanho do logo*/
+    }
+    .selecao-personagens{
+        flex-direction: column-reverse;/*coloca os elementos em coluna e inverte*/
+        max-width: 430px;/*tamanho maximo*/
+        margin: 0 auto;/*0 em cima e em baixo e auto na esquerda e direita*/
+    }
+    .selecao-personagens .personagens{
+        margin-top: 37px;/*espacamento entreo  os elementos*/
+    }
+    .selecao-personagens .personagens .titulo{
+        font-size: 15px;/*tamanho da fonte*/
+    }
+    .selecao-personagens .lista-personagens{
+        gap: 9px;/*espacamento entre os elementos*/
+    }
+    .selecao-personagens .personagem img{
+        width: 80px;
+    }
+    .personagem-selecionado .personagem-grande{
+        width: 350px;
+        height: 350px;
+    }
+    .personagem-selecionado .descricao-personagem{
+        width: 80%;
+        font-size: 16px;
+        margin: 20px auto;
+    }
+}
